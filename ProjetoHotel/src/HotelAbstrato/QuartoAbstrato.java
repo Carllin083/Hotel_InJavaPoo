@@ -1,6 +1,6 @@
 package HotelAbstrato;
 
-public class Quarto {
+public abstract class QuartoAbstrato {
 	// criação dos atributos juntamente com o construtor contendo parametros
 	private int numeroDoQuarto;
 	private String tipoQuarto;
@@ -8,14 +8,16 @@ public class Quarto {
 	private int valorDiaria;
 	private boolean disponibilidade;
 
-	public Quarto(int numeroDoQuarto, String tipoQuarto, String capacidadeMax, int valorDiaria, boolean disponibilidade) {
+	public QuartoAbstrato(int numeroDoQuarto, String tipoQuarto, String capacidadeMax, int valorDiaria, boolean disponibilidade) {
 		this.numeroDoQuarto = numeroDoQuarto;
 		this.tipoQuarto = tipoQuarto;
 		this.capacidadeMax = capacidadeMax;
 		this.valorDiaria = valorDiaria;
-		this.disponibilidade = disponibilidade;
+		this.disponibilidade = disponibilidade = true;
 	}
-
+	
+	public abstract void detalhesDoQuarto();
+	
 	// Getters and Setters and toString
 	public int getQuantidadeDeQuartos() {
 		return numeroDoQuarto;
@@ -57,10 +59,6 @@ public class Quarto {
 		this.disponibilidade = disponibilidade;
 	}
 
-	// Room Information
-	public String toString() {
-		return "\n=-=-=-=-=-=-=-=-=-=-=-\n INFORMAÇÕES DO QUARTOS\nNumero do Quarto: " + numeroDoQuarto
-				+ "\n Tipo do Quarto: " + tipoQuarto + "\nCapacidade maxima: " + capacidadeMax + "\n Valor da Diaria: " + valorDiaria + "\nDisponivel ? " + disponibilidade;
-	}
+
 
 }
