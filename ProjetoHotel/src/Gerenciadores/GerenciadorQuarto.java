@@ -8,7 +8,7 @@ public class GerenciadorQuarto {
 	//todos os metodos que envolvem gerenciamento de quartos
 	
 	public void cadastrarQuarto(Quarto quartoNovo) {
-		//sempre cadastrar os quartos com numero deles em ordem cresce no Array
+		//sempre cadastrar os quartos com numero deles em ordem crescente no Array
 		//ex: <1,4,8>
 	}
 	
