@@ -1,7 +1,6 @@
 package SistemaMain;
 
-
-public class Quarto {
+public abstract class Quarto {
 	int numeroQuarto;
 	int tipo;
 	int capacidade;
@@ -55,7 +54,5 @@ public class Quarto {
 	public void setEstaDisponivel(boolean estaDisponivel) {
 		this.estaDisponivel = estaDisponivel;
 	}
-
-
 
 }
