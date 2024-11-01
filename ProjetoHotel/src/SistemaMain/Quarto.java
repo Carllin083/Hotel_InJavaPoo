@@ -1,11 +1,11 @@
 package SistemaMain;
 
-public abstract class Quarto {
-	int numeroQuarto;
-	int tipo;
-	int capacidade;
-	boolean estaDisponivel;
-	int valorDiaria;
+public class Quarto {
+	private int numeroQuarto;
+	private int tipo;
+	private int capacidade;
+	private boolean estaDisponivel;
+	private int valorDiaria;
 
 	public Quarto(int numeroQuarto, int tipo, int capacidade, int valorDiaria) {
 		this.numeroQuarto = numeroQuarto;

@@ -1,17 +1,16 @@
 package Usuarios;
 
-public class Hospede extends Pessoa{
-	public String dataNascimento;
-	public String endereco;
-	public String numero;
-	public String[][][] historico;
-	
-	public Hospede(String nome, String cpf, String dataNascimento, String endereco, String numero, String[][][] historico) {
+public class Hospede extends Pessoa {
+	private String dataNascimento;
+	private String endereco;
+	private String[][][] historico;
+	private String contato;
+
+	public Hospede(String nome, String cpf, String dataNascimento, String endereco, String contato) {
 		super(nome, cpf, "Hospede");
 		this.dataNascimento = dataNascimento;
 		this.endereco = endereco;
-		this.numero = numero;
-		this.historico = historico;
+		this.contato = contato;
 	}
 
 	public String getDataNascimento() {
@@ -30,14 +29,6 @@ public class Hospede extends Pessoa{
 		this.endereco = endereco;
 	}
 
-	public String getNumero() {
-		return numero;
-	}
-
-	public void setNumero(String numero) {
-		this.numero = numero;
-	}
-
 	public String[][][] getHistorico() {
 		return historico;
 	}
@@ -45,6 +36,13 @@ public class Hospede extends Pessoa{
 	public void setHistorico(String[][][] historico) {
 		this.historico = historico;
 	}
-	
+
+	public String getContato() {
+		return this.contato;
+	}
+
+	public void setContato(String contato) {
+		this.contato = contato;
+	}
 
 }
