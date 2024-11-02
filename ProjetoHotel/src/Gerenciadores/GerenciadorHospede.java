@@ -17,8 +17,14 @@ public class GerenciadorHospede {
 		// Implementação para editar o hóspede
 	}
 
-	public void buscarHospede(String cpf) {
-		// Implementação para buscar o hóspede
+	public void buscarHospedePorCPF(String cpf) {
+		for (Hospede hospedeAtual : listaHospedes) {
+			if (hospedeAtual.getCpf().equals(cpf)) {
+				System.out.println("\nHospede Localizado!!\n");
+				System.out.println("Nome do Hospede: " + hospedeAtual.getNome() + "\nCPF do Hospede: " + hospedeAtual.getCpf());
+
+			}
+		}
 	}
 
 	public void listarHospedes() {
