@@ -1,69 +1,79 @@
 package Usuarios;
 
+import SistemaMain.Reserva;
 import java.time.LocalDate;
+import java.time.format.DateTimeParseException;
 import java.util.ArrayList;
-
-import SistemaMain.Estadia;
-import SistemaMain.Quarto;
+import java.util.List;
 
 public class Hospede extends Pessoa {
-	private String dataNascimento;
-	private String endereco;
-	private String[][][] historico;
-	private String contato;
-	private ArrayList<Estadia> listaEstadia = new ArrayList<>();
-	private ArrayList<Hospede> ListaHospede = new ArrayList<>();
+    private LocalDate dataNascimento;
+    private String endereco;
+    private List<Reserva> historico;
+    private String contato;
 
-	public Hospede(String nome, String cpf, String dataNascimento, String endereco, String contato) {
-		super(nome, cpf, "Hospede");
-		this.dataNascimento = dataNascimento;
-		this.endereco = endereco;
-		this.contato = contato;
-	}
+    public Hospede(String nome, String cpf, String dataNascimento, String endereco, String contato) {
+        super(nome, cpf, "Hospede");
+        try {
+            this.dataNascimento = LocalDate.parse(dataNascimento);
+        } catch (DateTimeParseException e) {
+            System.out.println("Formato de data inválido. Use o formato AAAA-MM-DD.");
+            this.dataNascimento = null;
+        }
+        this.endereco = endereco;
+        this.contato = contato;
+        this.historico = new ArrayList<>();
+    }
 
-	public String getDataNascimento() {
-		return dataNascimento;
-	}
+    // Getters e Setters
+    public LocalDate getDataNascimento() {
+        return dataNascimento;
+    }
 
-	public void setDataNascimento(String dataNascimento) {
-		this.dataNascimento = dataNascimento;
-	}
+    public void setDataNascimento(String dataNascimento) {
+        try {
+            this.dataNascimento = LocalDate.parse(dataNascimento);
+        } catch (DateTimeParseException e) {
+            System.out.println("Formato de data inválido. Use o formato AAAA-MM-DD.");
+        }
+    }
 
-	public String getEndereco() {
-		return endereco;
-	}
+    public String getEndereco() {
+        return endereco;
+    }
 
-	public void setEndereco(String endereco) {
-		this.endereco = endereco;
-	}
+    public void setEndereco(String endereco) {
+        this.endereco = endereco;
+    }
 
-	public String[][][] getHistorico() {
-		return historico;
-	}
+    public String getContato() {
+        return this.contato;
+    }
 
-	public void setHistorico(String[][][] historico) {
-		this.historico = historico;
-	}
+    public void setContato(String contato) {
+        this.contato = contato;
+    }
 
-	public String getContato() {
-		return this.contato;
-	}
+    public void adicionarReservaAoHistorico(Reserva reserva) {
+        historico.add(reserva);
+    }
 
-	public void setContato(String contato) {
-		this.contato = contato;
-	}
+    public List<Reserva> getHistorico() {
+        return historico;
+    }
 
-	public void adicionarEstadia(Quarto quarto, LocalDate checkIn, LocalDate checkOut) {
-		Estadia estadia = new Estadia(quarto, checkIn, checkOut);
-		listaEstadia.add(estadia);
-	}
-	
-	public void visualizarHistoricoEstadias(String nome, String cpf) {
-		for(Hospede hospedeAtual : ListaHospede ) {
-			if(hospedeAtual.getCpf().equalsIgnoreCase(cpf)) {
-				System.out.println("Historico de Estadias de " + getNome());
-			}
-		}
-	}
-
+    public void exibirHistorico() {
+        if (historico.isEmpty()) {
+            System.out.println("Nenhuma estadia registrada para este hóspede.");
+        } else {
+            System.out.println("Histórico de estadias de " + getNome() + ":");
+            for (Reserva reserva : historico) {
+                System.out.println("Quarto: " + reserva.getQuarto().getNumeroQuarto() +
+                                   ", Entrada: " + reserva.getDataEntrada() +
+                                   ", Saída: " + reserva.getDataSaida());
+            }
+        }
+    }
 }
+
+

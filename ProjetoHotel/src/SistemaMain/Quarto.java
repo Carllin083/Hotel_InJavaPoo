@@ -1,26 +1,18 @@
 package SistemaMain;
 
-public class Quarto {
+public class Quarto<tipoQuato> {
+	
 	private int numeroQuarto;
-	private int tipo;
+	private tipoQuarto tipo;
 	private int capacidade;
 	private boolean estaDisponivel;
 	private int valorDiaria;
 
-	public Quarto(int numeroQuarto, int tipo, int capacidade, int valorDiaria) {
+	public Quarto(int numeroQuarto, tipoQuarto tipo, int capacidade, int valorDiaria ) {
 		this.numeroQuarto = numeroQuarto;
-		this.tipo = tipo;
 		this.capacidade = capacidade;
 		this.valorDiaria = valorDiaria;
 		this.estaDisponivel = true;// ao criar um quarto, ele ja cria como disponivel
-	}
-
-	public int getValorDiaria() {
-		return valorDiaria;
-	}
-
-	public void setValorDiaria(int valorDiaria) {
-		this.valorDiaria = valorDiaria;
 	}
 
 	public int getNumeroQuarto() {
@@ -31,14 +23,6 @@ public class Quarto {
 		this.numeroQuarto = numeroQuarto;
 	}
 
-	public int getTipo() {
-		return tipo;
-	}
-
-	public void setTipo(int tipo) {
-		this.tipo = tipo;
-	}
-
 	public int getCapacidade() {
 		return capacidade;
 	}
@@ -47,12 +31,41 @@ public class Quarto {
 		this.capacidade = capacidade;
 	}
 
-	public boolean EstaDisponivel() {
+	public boolean isEstaDisponivel() {
 		return estaDisponivel;
 	}
 
 	public void setEstaDisponivel(boolean estaDisponivel) {
 		this.estaDisponivel = estaDisponivel;
+	}
+
+	public int getValorDiaria() {
+		return valorDiaria;
+	}
+
+	public void setValorDiaria(int valorDiaria) {
+		this.valorDiaria = valorDiaria;
+	}
+
+	public tipoQuarto getTipo() {
+		return tipo;
+	}
+
+	public void setTipo(tipoQuarto tipo) {
+		this.tipo = tipo;
+	}
+	
+	public double valorDiaria(tipoQuarto tipo) {
+		switch (tipo) {
+		case SOLTEIRO:
+			return 100.0; // Preço para quarto solteiro
+		case CASAL:
+			return 150.0; // Preço para quarto casal
+		case SUITE:
+			return 250.0; // Preço para suíte
+		default:
+			return 0.0;
+		}
 	}
 
 }

@@ -3,11 +3,14 @@ package Gerenciadores;
 import java.util.ArrayList;
 
 import SistemaMain.Quarto;
+import SistemaMain.tipoQuarto;
 
 public class GerenciadorQuarto {
 	private ArrayList<Quarto> listaQuartos = new ArrayList<>();
+	public Quarto[] get;
 
-	public void cadastrarQuarto(int numeroQuarto, int tipo, int capacidade, int valorDiaria, boolean estaDisponivel) {
+	public void cadastrarQuarto(int numeroQuarto, tipoQuarto tipo, int capacidade, int valorDiaria,
+			boolean estaDisponivel) {
 		boolean quartoEncontrado = false;
 		for (Quarto quartoAtual : listaQuartos) {
 			if (quartoAtual.getNumeroQuarto() == numeroQuarto) {
@@ -47,22 +50,34 @@ public class GerenciadorQuarto {
 		System.out.println("=-=-=-=-=-=-=-=-=-=\n\n");
 		System.out.println("QUARTOS DISPONIVEIS");
 		System.out.println("\n\n=-=-=-=-=-=-=-=-=-=\n\n");
-		
+
 		if (listaQuartos == null || listaQuartos.size() == 0) {
 			System.out.println("Não existe quartos disponiveis ou cadastrados");
 		}
-		
+
 		System.out.println("=-=-=-=-=-=-=-=-=-=\n\n");
 		System.out.println("QUARTOS DISPONIVEIS");
 		System.out.println("\n\n=-=-=-=-=-=-=-=-=-=\n\n");
 		boolean quartoDisponivel = false;
 		for (Quarto quartoAtual : listaQuartos) {
-			if (quartoAtual.EstaDisponivel()) {
-				System.out.println("Numero do quarto: " + quartoAtual.getNumeroQuarto() + "Capcidade de pessoas: " + quartoAtual.getCapacidade());
+			if (quartoAtual.isEstaDisponivel()) {
+				System.out.println("Numero do quarto: " + quartoAtual.getNumeroQuarto() + "Capcidade de pessoas: "
+						+ quartoAtual.getCapacidade());
 				quartoDisponivel = true;
 
 			}
 		}
+	}
+
+	// BUSCAR QUARTO PELO NUMERO
+	public Quarto<?> buscarQuarto(int numeroQuarto) {
+		for (Quarto<?> quartoAtual : listaQuartos) {
+			if (quartoAtual.getNumeroQuarto() == numeroQuarto) {
+				System.out.println("Quarto encontrado com sucesso: " + "\n Numero do quarto: "
+						+ quartoAtual.getNumeroQuarto() + "\nTipo de Quarto" + quartoAtual.getTipo());
+			}
+		}
+		return null;
 	}
 
 }

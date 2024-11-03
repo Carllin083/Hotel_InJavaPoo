@@ -1,6 +1,6 @@
 package Usuarios;
 
-public class Pessoa {
+public abstract class Pessoa {
 	public String nome;
 	public String cpf;
 	public String tipo;
