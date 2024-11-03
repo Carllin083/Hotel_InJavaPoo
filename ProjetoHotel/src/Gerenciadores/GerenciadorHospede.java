@@ -10,7 +10,7 @@ public class GerenciadorHospede {
 	public void cadastrarHospede(String nome, String cpf, String dataNascimento, String endereco, String contato) {
 		Hospede novoHospede = new Hospede(nome, cpf, dataNascimento, endereco, contato);
 		listaHospedes.add(novoHospede);
-		System.out.println("Hospede cadastrado com sucesso");
+		System.out.println("Hospede cadastrado com sucesso" + "Nome do Hospede: " + novoHospede.nome);
 	}
 
 	public void editarHospede(String cpf) {

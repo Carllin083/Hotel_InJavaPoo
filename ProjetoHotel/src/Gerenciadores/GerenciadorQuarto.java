@@ -6,6 +6,7 @@ import SistemaMain.Quarto;
 import SistemaMain.tipoQuarto;
 
 public class GerenciadorQuarto {
+	
 	private ArrayList<Quarto> listaQuartos = new ArrayList<>();
 	public Quarto[] get;
 
@@ -27,8 +28,8 @@ public class GerenciadorQuarto {
 	}
 
 	public void atualizarStatusQuarto(int numeroQuarto, boolean estaDisponivel) {
-		boolean quartoEncontrado = false;
 		for (Quarto quartoAtual : listaQuartos) {
+			boolean quartoEncontrado = false;
 			if (quartoAtual.getNumeroQuarto() == numeroQuarto) {
 				quartoAtual.setEstaDisponivel(estaDisponivel);
 				quartoEncontrado = true;
@@ -70,8 +71,8 @@ public class GerenciadorQuarto {
 	}
 
 	// BUSCAR QUARTO PELO NUMERO
-	public Quarto<?> buscarQuarto(int numeroQuarto) {
-		for (Quarto<?> quartoAtual : listaQuartos) {
+	public Quarto buscarQuarto(int numeroQuarto) {
+		for (Quarto quartoAtual : listaQuartos) {
 			if (quartoAtual.getNumeroQuarto() == numeroQuarto) {
 				System.out.println("Quarto encontrado com sucesso: " + "\n Numero do quarto: "
 						+ quartoAtual.getNumeroQuarto() + "\nTipo de Quarto" + quartoAtual.getTipo());
@@ -79,5 +80,10 @@ public class GerenciadorQuarto {
 		}
 		return null;
 	}
+	
+	public ArrayList<Quarto> getListaQuartos() {
+	    return listaQuartos;
+	}
+
 
 }

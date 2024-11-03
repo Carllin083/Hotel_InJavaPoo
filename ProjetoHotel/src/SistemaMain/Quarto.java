@@ -1,6 +1,6 @@
 package SistemaMain;
 
-public class Quarto<tipoQuato> {
+public class Quarto {
 	
 	private int numeroQuarto;
 	private tipoQuarto tipo;

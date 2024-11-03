@@ -1,4 +1,5 @@
 package Gerenciadores;
+
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Random;
@@ -13,9 +14,6 @@ public class GerenciadorReserva {
 	private GerenciadorHospede gerenciadorHospede;
 	private GerenciadorQuarto gerenciadorQuarto;
 
-	public GerenciadorReserva() {
-	}
-
 	public GerenciadorReserva(GerenciadorHospede gerenciadorHospede, GerenciadorQuarto gerenciadorQuarto) {
 		this.gerenciadorHospede = gerenciadorHospede;
 		this.gerenciadorQuarto = gerenciadorQuarto;
@@ -26,14 +24,14 @@ public class GerenciadorReserva {
 			System.out.println("Erro: Dependências de hóspede ou quarto não configuradas.");
 			return;
 		}
-		
-		//BUSCAR HOSPEDE POR CPF
+
+		// BUSCAR HOSPEDE POR CPF
 		Hospede hospede = gerenciadorHospede.buscarHospedePorCPF(cpf);
-			if (hospede == null) {
-				System.out.println("Erro: Hóspede não encontrado.");
+		if (hospede == null) {
+			System.out.println("Erro: Hóspede não encontrado.");
 		}
-			
-		//BUSCAR QUARTO PELO NUMERO
+
+		// BUSCAR QUARTO PELO NUMERO
 		Quarto quarto = gerenciadorQuarto.buscarQuarto(numeroQuarto);
 		if (quarto == null || !quarto.isEstaDisponivel()) {
 			System.out.println("Erro: Quarto não encontrado ou indisponível.");
@@ -79,7 +77,8 @@ public class GerenciadorReserva {
 			long dias = java.time.temporal.ChronoUnit.DAYS.between(reservaParaCheckOut.getDataEntrada(), hoje);
 			double valorTotal = dias * quarto.getValorDiaria();
 
-			quarto.setEstaDisponivel(true);;
+			quarto.setEstaDisponivel(true);
+			;
 			listaReservas.remove(reservaParaCheckOut);
 
 			System.out.println(
@@ -150,7 +149,7 @@ public class GerenciadorReserva {
 	}
 
 	public void listarQuartosDisponiveis() {
-		for (Quarto quarto : gerenciadorQuarto.get) {
+		for (Quarto quarto : gerenciadorQuarto.getListaQuartos()) {
 			if (quarto.isEstaDisponivel()) {
 				System.out.println("Número do Quarto: " + quarto.getNumeroQuarto());
 				System.out.println("Tipo: " + quarto.getTipo());
