@@ -1,14 +1,17 @@
 package Usuarios;
 
 public class Pessoa {
-	public String nome;
-	public String cpf;
-	public String tipo;
+	private String nome;
+	private String cpf;
+	private String tipo;
 	
+	
+
 	public Pessoa(String nome, String cpf, String tipo) {
 		this.cpf = cpf;
 		this.nome = nome;
 		this.tipo = tipo;
+
 	}
 
 	public String getNome() {

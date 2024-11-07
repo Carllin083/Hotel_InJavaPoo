@@ -2,25 +2,29 @@ package SistemaMain;
 
 public class Quarto {
 	private int numeroQuarto;
-	private int tipo;
+	private tipoQuarto tipo;
 	private int capacidade;
 	private boolean estaDisponivel;
-	private int valorDiaria;
+	private double valorDiaria;
 
-	public Quarto(int numeroQuarto, int tipo, int capacidade, int valorDiaria) {
+	public Quarto(int numeroQuarto, tipoQuarto tipo, int capacidade, double valorDiaria1) {
 		this.numeroQuarto = numeroQuarto;
 		this.tipo = tipo;
 		this.capacidade = capacidade;
-		this.valorDiaria = valorDiaria;
+		this.valorDiaria = valorDiaria1;
 		this.estaDisponivel = true;// ao criar um quarto, ele ja cria como disponivel
 	}
 
-	public int getValorDiaria() {
+	public double getValorDiaria() {
 		return valorDiaria;
 	}
 
-	public void setValorDiaria(int valorDiaria) {
+	public void setValorDiaria(double valorDiaria) {
 		this.valorDiaria = valorDiaria;
+	}
+
+	public boolean isEstaDisponivel() {
+		return estaDisponivel;
 	}
 
 	public int getNumeroQuarto() {
@@ -31,11 +35,11 @@ public class Quarto {
 		this.numeroQuarto = numeroQuarto;
 	}
 
-	public int getTipo() {
+	public tipoQuarto getTipo() {
 		return tipo;
 	}
 
-	public void setTipo(int tipo) {
+	public void setTipo(tipoQuarto tipo) {
 		this.tipo = tipo;
 	}
 

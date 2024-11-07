@@ -6,7 +6,7 @@ public class Funcionario extends Pessoa{
 	public String turno;
 	public int horasTrabalhadas;
 	
-	public Funcionario(String nome, String cpf,String cargo, double salario, String turno, int horasTrabalhadas) {
+	public Funcionario(String nome, String cpf,String cargo, String turno, double salario, int horasTrabalhadas) {
 		super(nome, cpf, "Funcionario");
 		this.cargo = cargo;
 		this.salario = salario;
