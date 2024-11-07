@@ -21,6 +21,10 @@ public class GerenciadorHospede {
 			Hospede novoHospede = new Hospede(nome, cpf, dataNascimento, endereco, contato);
 			listaHospedes.add(novoHospede);
 			System.out.println("Novo Hóspede cadastrado com sucesso!");
+			System.out.println("Nome do Hóspede: " + nome);
+			System.out.println("CPF cadastrado: " + cpf);
+			System.out.println("Data de Nascimento: " + dataNascimento);
+			System.out.println("Contato: " + contato);
 
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
@@ -39,7 +43,8 @@ public class GerenciadorHospede {
 			System.out.println("Cadastro do hóspede " + hospedeCadastrado.getNome() + " atualizado com sucesso");
 
 		} else {
-			System.out.println("Nenhum cadastro de hóspede com o cpf " + hospedeCadastrado.getCpf() + " foi encontrado");
+			System.out
+					.println("Nenhum cadastro de hóspede com o cpf " + hospedeCadastrado.getCpf() + " foi encontrado");
 		}
 
 	}
@@ -56,7 +61,8 @@ public class GerenciadorHospede {
 		}
 
 		if (!isEncontrou) {
-			System.out.println("Hóspede não encontrado, por favor verifique se as informações foram passadas corretamente e tente novamente");
+			System.out.println(
+					"Hóspede não encontrado, por favor verifique se as informações foram passadas corretamente e tente novamente");
 		}
 		return null;
 	}
@@ -70,10 +76,10 @@ public class GerenciadorHospede {
 					System.out.println("Nome do Hospede: " + hospedeAtual.getNome() + "\n Data de Nascimento: "
 							+ hospedeAtual.getDataNascimento());
 				}
-			} else {
-				System.out.println("Não há hóspedes cadastrados!");
 			}
+
 		}
+		System.out.println("Não há hóspedes cadastrados!");
 	}
 
 	// MÉTODOS ADICIONAIS

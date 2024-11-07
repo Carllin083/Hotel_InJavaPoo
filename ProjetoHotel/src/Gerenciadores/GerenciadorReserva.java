@@ -14,8 +14,7 @@ public class GerenciadorReserva {
 	private GerenciadorHospede gerenciadorHospede;
 	private GerenciadorQuarto gerenciadorQuarto;
 
-	public GerenciadorReserva() {
-	}
+
 
 	public GerenciadorReserva(GerenciadorHospede gerenciadorHospede, GerenciadorQuarto gerenciadorQuarto) {
 		this.gerenciadorHospede = gerenciadorHospede;

@@ -21,7 +21,7 @@ public class GerenciadorFuncionario {
 
 	public void editarFuncionario(String nome, String cpf, String cargo, double salario, String turno) {
 		for (Funcionario funcionarioAtual : listaFuncionarios) {
-			if (funcionarioAtual.getCpf().equals(cpf)) {
+			if (funcionarioAtual.getCpf().equals(cpf)){
 				funcionarioAtual.setNome(nome);
 				funcionarioAtual.setCargo(cargo);
 				funcionarioAtual.setSalario(salario);

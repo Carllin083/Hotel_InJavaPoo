@@ -38,13 +38,15 @@ public class GerenciadorHotel {
 					menuQuarto();
 					break;
 				case 2:
+					System.out.println("Você escolheu Gerenciador de Hospedes.\n");
 					menuHospedes();
 					break;
 				case 3:
+					System.out.println("Você escolheu Gerenciador de Reservas.\n");
 					menuReservas();
 					break;
 				case 4:
-					System.out.println("Você escolheu Funcionários.");
+					System.out.println("Você escolheu Gerenciador de Funcionarios. \n");
 					menuFuncionarios();
 					break;
 				case 5:
