@@ -6,6 +6,7 @@ import Gerenciadores.GerenciadorFuncionario;
 import Gerenciadores.GerenciadorHospede;
 import Gerenciadores.GerenciadorQuarto;
 import Gerenciadores.GerenciadorReserva;
+import Usuarios.Hospede;
 
 public class GerenciadorHotel {
 
@@ -137,7 +138,7 @@ public class GerenciadorHotel {
 		String endereco;
 		String contato;
 		do {
-			System.out.println(">>>>>>>>>> GERENCIADOR DE HÓSPEDES <<<<<<<<<");
+			System.out.println("\n>>>>>>>>>> GERENCIADOR DE HÓSPEDES <<<<<<<<<\n");
 			System.out.println("Opções: \n [1]Cadastrar Novo hóspede \n " + "[2]Listar Hóspedes cadastrados \n "
 					+ "[3]Pesquisar hóspede \n " + "[4]Editar cadastro de Hóspede \n " + "[5]Voltar ao menu principal");
 			System.out.println("Digite sua opção: ");
@@ -148,7 +149,11 @@ public class GerenciadorHotel {
 
 				switch (opcao) {
 				case 1:
-					System.out.println("Digite o cpf do hóspede: ");
+					System.out.println("=-==-=-==-=-=-=-=-=-=-=-=-=-=-");
+					System.out.println("Informe os dados do hóspede");
+					System.out.println("=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
+
+					System.out.println("Digite o CPF do hóspede: ");
 					cpf = scanner.nextLine().trim();
 
 					System.out.println("Digite o nome do hóspede: ");
@@ -162,12 +167,12 @@ public class GerenciadorHotel {
 
 					System.out.println("Digite o contato do hóspede: ");
 					contato = scanner.nextLine().trim();
-
 					gerenciadorHospede.cadastrar(nome, cpf, data, endereco, contato);
+
 					break;
 
 				case 2:
-					gerenciadorHospede.listarHospedes();
+					gerenciadorHospede.listar();
 					break;
 
 				case 3:
@@ -177,21 +182,24 @@ public class GerenciadorHotel {
 					break;
 
 				case 4:
-					System.out.println("Digite o cpf do hóspede: ");
+					System.out.println("Digite o CPF do hóspede: ");
 					cpf = scanner.nextLine().trim();
 
-					System.out.println("Digite o nome atualizado do hóspede: ");
-					nome = scanner.nextLine().trim();
+					Hospede hospedeExistente = gerenciadorHospede.buscaPorCpf(cpf); // Verifica se o hóspede existe
 
-					System.out.println("Digite o endereço atualizado do hóspede: ");
-					endereco = scanner.nextLine().trim();
+					if (hospedeExistente != null) { // Se o hóspede foi encontrado, permite a edição
+						System.out.println("Digite o nome atualizado do hóspede: ");
+						nome = scanner.nextLine().trim();
 
-					System.out.println("Digite o contato atualizado do hóspede: ");
-					contato = scanner.nextLine().trim();
+						System.out.println("Digite o endereço atualizado do hóspede: ");
+						endereco = scanner.nextLine().trim();
 
-					gerenciadorHospede.editar(cpf, nome, endereco, contato);
+						System.out.println("Digite o contato atualizado do hóspede: ");
+						contato = scanner.nextLine().trim();
+						gerenciadorHospede.editar(cpf, nome, endereco, contato);
+					}
 					break;
-				
+
 				case 5:
 					System.out.println("=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=");
 					System.out.println("Retornando ao menu principal...\n");
@@ -202,7 +210,7 @@ public class GerenciadorHotel {
 					break;
 				}
 			} catch (InputMismatchException e) {
-				System.out.println("Por favor, insira um número válido.");
+				System.out.println("ERRO: " + e.getMessage());
 				scanner.nextLine();
 			}
 
@@ -293,9 +301,10 @@ public class GerenciadorHotel {
 			System.out.println("6. Voltar");
 			System.out.print("Escolha uma opção: ");
 
+			opcao = scanner.nextInt();
+			scanner.nextLine();
+
 			try {
-				opcao = scanner.nextInt();
-				scanner.nextLine();
 
 				switch (opcao) {
 				case 1:
@@ -417,7 +426,8 @@ public class GerenciadorHotel {
 					System.out.println("Opção inválida. Por favor, escolha entre 1 e 3.");
 				}
 			} catch (InputMismatchException e) {
-				System.out.println("=-=-=-=-=-\n  ERROR\n=-=-=-=-=-=-\n\nSelecione as opções através da numeração do mesmo\n");
+				System.out.println(
+						"=-=-=-=-=-\n  ERROR\n=-=-=-=-=-=-\n\nSelecione as opções através da numeração do mesmo\n");
 				scanner.nextLine();
 			}
 		}

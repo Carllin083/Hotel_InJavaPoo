@@ -58,12 +58,14 @@ public class GerenciadorReserva {
 		quarto.setEstaDisponivel(false);
 		System.out.println("Reserva criada com sucesso para o quarto " + numeroQuarto);
 	}
-
+	
+	//Saida do hospede
 	public void checkOut(int numeroReserva) {
 		Reserva reservaParaCheckOut = null;
 		for (Reserva reserva : listaReservas) {
 			if (reserva.getProtocoloReserva() == numeroReserva) {
 				reservaParaCheckOut = reserva;
+				System.out.println("Protocolo da reserva" + reserva.getProtocoloReserva());
 				break;
 			}
 		}
@@ -109,22 +111,35 @@ public class GerenciadorReserva {
 	}
 
 	public int gerarProtocoloUnico() {
-		Random random = new Random();
-		int protocolo;
-		for (int i = 0; i < 100; i++) {
-			protocolo = random.nextInt(10000);
-			boolean existe = false;
-			for (Reserva reserva : listaReservas) {
-				if (reserva.getProtocoloReserva() == protocolo) {
-					existe = true;
-					break;
-				}
-			}
-			if (!existe) {
-				return protocolo;
-			}
-		}
-		return -1;
+	    // Cria um objeto Random para gerar números aleatórios
+	    Random random = new Random();
+	    
+	    // Variável para armazenar o protocolo gerado
+	    int protocolo;
+	    
+	    // Tenta gerar um protocolo único até 100 vezes
+	    for (int i = 0; i < 100; i++) {
+	        // Gera um número aleatório entre 0 e 9999 (inclusive)
+	        protocolo = random.nextInt(10000);
+	        
+	        // Verifica se o protocolo gerado já existe em alguma reserva
+	        boolean existe = false;
+	        for (Reserva reserva : listaReservas) {
+	            // Se o protocolo já estiver em uso, marca a variável 'existe' como true
+	            if (reserva.getProtocoloReserva() == protocolo) {
+	                existe = true;
+	                break; // Interrompe o loop assim que encontra um protocolo duplicado
+	            }
+	        }
+	        
+	        // Se o protocolo não existir, tenta gerar um protocolo inexistente
+	        if (!existe) {
+	            return protocolo;
+	        }
+	    }
+	    
+	    // Se o protocolo único não foi gerado após 100 tentativas, retorna -1
+	    return -1;
 	}
 
 	public void listaReservas() {
