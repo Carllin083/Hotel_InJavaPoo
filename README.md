@@ -1,4 +1,3 @@
-(O GitHub já coloca o nome do seu repositório aqui como Nível 1)
 
 🚀 Recentemente, concluí o projeto `Hotel_InJavaPoo`, que desenvolvi para aplicar e solidificar meus conhecimentos em Programação Orientada a Objetos (POO) utilizando Java.
 ...
